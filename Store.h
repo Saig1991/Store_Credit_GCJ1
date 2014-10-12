@@ -9,12 +9,11 @@ public:
     Store(int numItems)
     //Searches the store with the constraint from the customer to find the two objects.
     std::queue<int> findObjects(Customer &cust)
-    // Remove item from Store.
-    removeFrontItem();
     // Add item to store
-    addItem(int item);
+    void addItem(int item);
 private:
-    std::queue<int> store
+    std::vector<int> store
+    int numStoreitems;
 };
 
 #endif
