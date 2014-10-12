@@ -2,6 +2,8 @@ Create main program that reads in input from file, constructs a store object wit
 
 The program assumes that each test case has atleast one solution as the specification states.
 
+input file name needs to be specified as command line input.
+
 Main.cpp:
 main function (reads in file, loops over number of test cases, for each test case instance it constructs a store and a customer and calls the stores find objects function).
 
