@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
-#include "Store"
-#include "Customer"
+#include "Store.h"
+#include "Customer.h"
 
 int main(int argc, char* argv[]){
      
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]){
                 //Create Store for this test case.
                 Store newStore(numStoreItems);
                 //Create customer for this test case.
-                Customer newCust(StoreCredit);
+                Customer newCust(storeCredit);
                 
                 //Iterate through all the items in this store instance and create the store object.
                 for( int j = 0; j < numStoreItems; j++){
@@ -39,19 +39,18 @@ int main(int argc, char* argv[]){
                     newStore.addItem(item);
                 }
                 
-                //get output.
                 std::queue<int> output = newStore.findObjects(newCust);
 
                 //Display output to the std output.
                 std::cout << "Case #";
                 std::cout << i+1;
                 std::cout << ": ";
-                std::cout << output.front();
+                std::cout << output.front() << " ";
                 output.pop();
                 std::cout << output.front() << std::endl;
                 output.pop();
-                ifs.close();
             }
+            ifs.close();
         } else{
             std::cout << "Error: Couldn't open input file" << std::endl;
 
