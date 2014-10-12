@@ -16,7 +16,7 @@ std::queue<int> findObjects(Customer &cust)
 // Remove item from Store.
 removeFrontItem();
 // Add item to store
-addItem();
+addItem(int item);
 
 Customer.cpp/Customer.h:
 //Initialise customer with the amount of money they have.
