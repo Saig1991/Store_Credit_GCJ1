@@ -1,0 +1,47 @@
+#include "Store"
+
+//Construct a store.
+Store::Store(int numItems){
+    this->numStoreItems = numItems;
+}
+
+//Search store for two items that add up to the customers credit.
+std::queue<int> Store::findObjects(Customer &cust){
+    int credit = cust.showCredit();
+    std::vector<int>::iterator firstItem = this->store.begin();
+    std::queue<input> output;
+    bool done = false;
+
+    while(firstItem != this->store.end()){
+        // This is the price required for the second item to meet the condition.
+        int secondPrice = credit - *firstItem;
+
+        //Start the search for the second item after the first item.
+        //We assume that none of the previous items would meet the condition 
+        //because they would have been searched already.( this is the structure of the loops).
+        secondItem = firstItem + 1;
+        while(secondItem != this->store.end()){
+            if(*secondItem == secondPrice){
+                output.push(*firstItem);
+                output.push(*secondItem);
+                secondItem = this->store.end();
+                done = true;
+            }
+            secondItem++;
+        }
+
+        if(!done){
+            firstItem++;
+        } else {
+            firstItem = this->store.end();
+        }
+    }
+
+    return output;
+}
+
+
+// Add item to store
+void Store::addItem(int item){
+    this->store.push_back(item);
+}
