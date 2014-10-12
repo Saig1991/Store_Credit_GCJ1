@@ -1,0 +1,25 @@
+Create main program that reads in input from file, constructs a store object with the number and list of items and a customer object with the credit.
+
+The program assumes that each test case has atleast one solution as the specification states.
+
+Main.cpp:
+main function (reads in file, loops over number of test cases, for each test case instance it constructs a store and a customer and calls the stores find objects function).
+
+Store.cpp/Store.h:
+//Use a queue because we want to be able to remove the front item whilst
+// searching for the two items that satisfy the constraint.
+Store(int numItems)
+//Searches the store with the constraint from the customer to find the two objects.
+std::queue<int> findObjects(Customer &cust)
+// Remove item from Store.
+removeFrontItem();
+// Add item to store
+addItem();
+
+Customer.cpp/Customer.h:
+//Initialise customer with the amount of money they have.
+Customer(int credit)
+// Return the amount that the customer has.
+int showCredit();
+
+
