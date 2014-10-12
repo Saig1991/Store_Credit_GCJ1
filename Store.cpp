@@ -1,4 +1,5 @@
-#include "Store"
+#include "Store.h"
+#include <iostream>
 
 //Construct a store.
 Store::Store(int numItems){
@@ -9,7 +10,7 @@ Store::Store(int numItems){
 std::queue<int> Store::findObjects(Customer &cust){
     int credit = cust.showCredit();
     std::vector<int>::iterator firstItem = this->store.begin();
-    std::queue<input> output;
+    std::queue<int> output;
     bool done = false;
 
     while(firstItem != this->store.end()){
@@ -19,15 +20,22 @@ std::queue<int> Store::findObjects(Customer &cust){
         //Start the search for the second item after the first item.
         //We assume that none of the previous items would meet the condition 
         //because they would have been searched already.( this is the structure of the loops).
-        secondItem = firstItem + 1;
+        std::vector<int>::iterator secondItem = firstItem;
+        if(secondItem != this->store.end()) secondItem++;
+
         while(secondItem != this->store.end()){
             if(*secondItem == secondPrice){
-                output.push(*firstItem);
-                output.push(*secondItem);
+                int firstPos = firstItem - this->store.begin();
+                int secondPos = secondItem - this->store.begin();
+                firstPos++;
+                secondPos++;
+                output.push(firstPos);
+                output.push(secondPos);
                 secondItem = this->store.end();
                 done = true;
+            } else {
+                secondItem++;
             }
-            secondItem++;
         }
 
         if(!done){
