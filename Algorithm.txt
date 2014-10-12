@@ -13,8 +13,6 @@ Store.cpp/Store.h:
 Store(int numItems)
 //Searches the store with the constraint from the customer to find the two objects.
 std::queue<int> findObjects(Customer &cust)
-// Remove item from Store.
-removeFrontItem();
 // Add item to store
 addItem(int item);
 
